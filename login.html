@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ni-Swarth - Sign Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+    :root {
+      --primary: #10b981;
+      --primary-dark: #047857;
+      --text-dark: #3b2f1c;
+      --text-light: #f0f0f0;
+      --border: #d1fae5;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f8fafc;
+    }
+
+    .hero-signup {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://brownliving.in/cdn/shop/articles/food-donation-services-988981.jpg?v=1703200384');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      text-align: center;
+      margin-bottom: 30px;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    .signup-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 400px;
+      animation: slideUp 1s ease-out;
+      z-index: 1;
+    }
+
+    .signup-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-group {
+      text-align: left;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px 12px 40px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 15px;
+      top: 40px;
+      color: var(--primary);
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+    }
+
+    .signup-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .signup-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .branding-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      margin-bottom: 10px;
+    }
+
+    .branding-tagline {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      max-width: 500px;
+      margin: 10px auto;
+      line-height: 1.5;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--text-dark);
+    }
+
+    .login-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -20px); }
+      10% { opacity: 1; transform: translate(-50%, 0); }
+      90% { opacity: 1; transform: translate(-50%, 0); }
+      100% { opacity: 0; transform: translate(-50%, -20px); }
+    }
+
+    @media (min-width: 768px) {
+      .hero-signup {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 60px;
+      }
+
+      .hero-content {
+        max-width: 50%;
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 30px 20px;
+      }
+      
+      .branding-title {
+        font-size: 2.5rem;
+      }
+      
+      .branding-tagline {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="signupPage">
+    <div class="hero-signup">
+      <div class="hero-content">
+        <h1 class="branding-title">Ni-Swarth</h1>
+        <p class="branding-tagline">हर दान बने पहचान - विश्वास के साथ, बदलाव के लिए!</p>
+        <p class="branding-tagline">A Platform for Change, A Community for Growth</p>
+      </div>
+      <div class="signup-container">
+        <h2 class="signup-title">Welcome</h2>
+        <form class="signup-form" id="signupForm">
+          <div class="input-group">
+            <label for="fullname">Full Name</label>
+            <i class="fas fa-user"></i>
+            <input type="text" id="fullname" placeholder="Enter your full name" required>
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="signup-button">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+          <div class="login-link">
+            Already have an account? <a href="login.html">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Basic validation
+      if (!fullname || !email || !password) {
+        showAlert('Please fill in all fields', 'error');
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        showAlert('Please enter a valid email address', 'error');
+        return;
+      }
+
+      // Simulate signup process
+      registerUser(fullname, email, password);
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function registerUser(fullname, email, password) {
+      // Show loading state
+      const signupBtn = document.querySelector('.signup-button');
+      signupBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering';
+      signupBtn.disabled = true;
+
+      // In a real application, this would be an API call to your backend
+      setTimeout(() => {
+        // For demo purposes, we'll just store in localStorage
+        const userData = {
+          fullname: fullname,
+          email: email,
+          password: password // Note: In real app, never store plain passwords!
+        };
+        
+        localStorage.setItem('userData', JSON.stringify(userData));
+        showAlert('Registration successful!', 'success');
+        
+        // Redirect to login after successful registration
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+        
+      }, 1500);
+    }
+
+    function showAlert(message, type) {
+      // Remove any existing alerts
+      const existingAlert = document.querySelector('.alert-message');
+      if (existingAlert) existingAlert.remove();
+
+      const alert = document.createElement('div');
+      alert.className = `alert-message ${type}`;
+      alert.textContent = message;
+      
+      // Style the alert
+      alert.style.position = 'fixed';
+      alert.style.top = '20px';
+      alert.style.left = '50%';
+      alert.style.transform = 'translateX(-50%)';
+      alert.style.padding = '12px 24px';
+      alert.style.borderRadius = '8px';
+      alert.style.backgroundColor = type === 'error' ? '#ef4444' : '#10b981';
+      alert.style.color = 'white';
+      alert.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+      alert.style.zIndex = '1000';
+      alert.style.animation = 'fadeInOut 3s forwards';
+
+      document.body.appendChild(alert);
+
+      // Remove alert after animation
+      setTimeout(() => {
+        alert.remove();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
