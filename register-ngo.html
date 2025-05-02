@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGO Registration - Ni-Swarth</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://www.ifpri.org/wp-content/uploads/2021/07/unfss_blog_fooddonation5.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #1e293b;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .registration-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .form-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      opacity: 0.9;
+    }
+
+    .registration-form {
+      padding: 2rem;
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      color: #8B4513;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #D2B48C;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    label.required::after {
+      content: " *";
+      color: #ef4444;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #A0522D;
+      box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.2);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-item input {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+
+    .other-input {
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .other-input.visible {
+      display: block;
+    }
+
+    .file-upload {
+      border: 2px dashed #cbd5e1;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .file-upload:hover {
+      border-color: #A0522D;
+      background-color: #FAF0E6;
+    }
+
+    .file-upload input {
+      display: none;
+    }
+
+    .file-hint {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.25rem;
+    }
+
+    .submit-btn {
+      background-color: #8B4513;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background-color: #A0522D;
+      transform: translateY(-2px);
+    }
+
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .submit-btn.loading .spinner {
+      display: block;
+    }
+
+    .submit-btn.loading .btn-text {
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .form-header {
+        padding: 1.5rem 1rem;
+      }
+      
+      .form-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .registration-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-container">
+    <div class="form-header">
+      <h1>Register Your NGO</h1>
+      <p>Join our network to connect with donors and amplify your impact</p>
+    </div>
+
+    <form id="ngoRegistration" class="registration-form">
+      <!-- Basic Information Section -->
+      <div class="form-section">
+        <h2 class="section-title">Basic Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ngoName" class="required">NGO Name</label>
+            <input type="text" id="ngoName" placeholder="e.g. Green Earth Foundation" required>
+            <p class="file-hint">Legal registered name</p>
+          </div>
+          <div class="form-group">
+            <label for="registrationNumber" class="required">Registration Number</label>
+            <input type="text" id="registrationNumber" placeholder="12A/123456" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="required">Brief Description</label>
+          <textarea id="description" placeholder="Describe your mission, key achievements, and target beneficiaries (max 300 words)" maxlength="300" required></textarea>
+          <div class="char-count"><span id="charRemaining">300</span> characters remaining</div>
+        </div>
+      </div>
+
+      <!-- Contact Information Section -->
+      <div class="form-section">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" placeholder="contact@yourngo.org" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 XXXXXXXXXX">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="address" class="required">Address</label>
+            <input type="text" id="address" placeholder="123 Main Street" required>
+          </div>
+          <div class="form-group">
+            <label for="city" class="required">City</label>
+            <input type="text" id="city" placeholder="Your city" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="state" class="required">State</label>
+            <input type="text" id="state" placeholder="Your state" required>
+          </div>
+          <div class="form-group">
+            <label for="pincode" class="required">Pincode</label>
+            <input type="text" id="pincode" placeholder="123456" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operational Details Section -->
+      <div class="form-section">
+        <h2 class="section-title">Operational Details</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="required">Primary Operational Area</label>
+            <select id="operationalArea" required>
+              <option value="">Select area</option>
+              <option>Urban</option>
+              <option>Rural</option>
+              <option>Both</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="yearEstablished">Year Established</label>
+            <input type="number" id="yearEstablished" placeholder="e.g. 2010" min="1900" max="2025">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="required">Focus Areas</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="focusFood" name="focusArea" value="Food Security">
+              <label for="focusFood">Food Security</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="focusEducation" name="focusArea" value="Education">
+              <label for="focusEducation">Education</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="focusHealth" name="focusArea" value="Healthcare">
+              <label for="focusHealth">Healthcare</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="focusEnvironment" name="focusArea" value="Environment">
+              <label for="focusEnvironment">Environment</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="focusOther" name="focusArea" value="Other">
+              <label for="focusOther">Other</label>
+            </div>
+          </div>
+          <input type="text" id="otherFocus" placeholder="Please specify" class="other-input">
+        </div>
+      </div>
+
+      <!-- Verification Documents -->
+      <div class="form-section">
+        <h2 class="section-title">Verification Documents</h2>
+        <div class="form-group">
+          <label class="required">Registration Certificate</label>
+          <label class="file-upload">
+            <input type="file" id="registrationProof" accept=".pdf,.jpg,.jpeg,.png" required>
+            Click to upload file (PDF/JPG/PNG)
+          </label>
+          <p class="file-hint">Max file size: 5MB</p>
+        </div>
+
+        <div class="form-group">
+          <label>PAN Card</label>
+          <label class="file-upload">
+            <input type="file" id="panCard" accept=".pdf,.jpg,.jpeg,.png">
+            Click to upload file (PDF/JPG/PNG)
+          </label>
+          <p class="file-hint">Optional but recommended</p>
+        </div>
+      </div>
+
+      <!-- Terms and Submission -->
+      <div class="form-section">
+        <div class="form-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="termsAgreement" required>
+            <label for="termsAgreement" class="required">I agree to the Terms of Service and Privacy Policy</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Submit Application</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Character counter for description
+    const descriptionField = document.getElementById('description');
+    const charCounter = document.getElementById('charRemaining');
+    
+    descriptionField.addEventListener('input', function() {
+      const remaining = 300 - this.value.length;
+      charCounter.textContent = remaining;
+      
+      if (remaining < 50) {
+        charCounter.style.color = '#ef4444';
+      } else {
+        charCounter.style.color = '#64748b';
+      }
+    });
+
+    // Show "Other" input when "Other" checkbox is checked
+    document.getElementById('focusOther').addEventListener('change', function() {
+      document.getElementById('otherFocus').classList.toggle('visible', this.checked);
+      if (this.checked) {
+        document.getElementById('otherFocus').focus();
+      }
+    });
+
+    // Form submission handler
+    document.getElementById('ngoRegistration').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.querySelector('.submit-btn');
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      
+      // Simulate form processing
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        
+        // Show success message (in a real app, this would be after API response)
+        alert('Thank you for your application! We will review your submission and contact you within 3-5 business days.');
+        
+        // Reset form (optional)
+        // this.reset();
+        // charCounter.textContent = '300';
+      }, 2000);
+    });
+
+    // File upload display
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    fileInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        if (this.files.length > 0) {
+          const label = this.parentElement;
+          label.style.borderColor = '#A0522D';
+          label.style.backgroundColor = '#FAF0E6';
+          label.textContent = this.files[0].name;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

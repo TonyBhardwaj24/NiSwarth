@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ni-Swarth | Team</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px 20px;
+      text-align: center;
+      color: #fcd34d;
+      border-bottom: 2px solid #b45309;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .team-container {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin: 40px auto;
+      max-width: 1200px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .team-container h2 {
+      color: #fcd34d;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .team-member {
+      background-color: rgba(178, 245, 234, 0.15);
+      border-radius: 12px;
+      padding: 25px;
+      width: 220px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      border: 1px solid rgba(252, 211, 77, 0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      background-color: rgba(178, 245, 234, 0.25);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .team-member h3 {
+      color: #fcd34d;
+      font-size: 1.3rem;
+      margin: 0 0 12px 0;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn i {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover i {
+      transform: scale(1.2);
+    }
+
+    .btn.linkedin {
+      background-color: #0077b5;
+      color: #fff;
+    }
+
+    .btn.linkedin:hover {
+      background-color: #005f91;
+    }
+
+    .btn.email {
+      background-color: #f97316;
+      color: #fff;
+    }
+
+    .btn.email:hover {
+      background-color: #ea580c;
+    }
+
+    .back-button {
+      margin-top: 40px;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #b45309;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: all 0.3s;
+      border: 2px solid #92400e;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .back-button:hover {
+      background-color: #92400e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .contact-section {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      max-width: 800px;
+      margin: 0 auto 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .contact-section h3 {
+      color: #fcd34d;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .contact-section a {
+      color: #b2f5ea;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-section a:hover {
+      color: #fcd34d;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 25px 20px;
+      text-align: center;
+      color: #fcd34d;
+      border-top: 1px solid #b45309;
+    }
+
+    @media (max-width: 768px) {
+      .team-member {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      header h1, .team-container h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meet the Ni-Swarth Team</h1>
+  </header>
+
+  <section class="team-container">
+    <h2>Our Core Members</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <h3>Samar Jamal</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/samar-jamal" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:samar.jamal@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i> 
+          </a>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <h3>Harshita Pokhariya</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/harshita-pokhariya" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:harshita@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <h3>Jigansa Satapathy</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/jigansa" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:jigansa@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <h3>Kushagra Dobhal</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/kushagra" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:kushagra@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i> 
+          </a>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <h3>Shreya Bansal</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/shreya-bansal" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:shreya@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i> 
+          </a>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <h3>Lavanya Kapoor</h3>
+        <div class="button-group">
+          <a href="https://www.linkedin.com/in/lavanya-kapoor" target="_blank" class="btn linkedin">
+            <i class="fab fa-linkedin"></i> 
+          </a>
+          <a href="mailto:lavanya@niswarth.org" class="btn email">
+            <i class="fas fa-envelope"></i> 
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h3>Contact Us</h3>
+    <p>Have questions or want to collaborate? Reach out at: <br><a href="mailto:contact@niswarth.org">contact@niswarth.org</a></p>
+  </section>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="back-button">← Back to Home</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Ni-Swarth. All rights reserved.
+  </footer>
+</body>
+</html>

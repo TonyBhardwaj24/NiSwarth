@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partner With Us | Ni-Swarth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brown-dark: #5c3a21;
+      --brown-medium: #8b5a2b;
+      --brown-light: #d4b78f;
+      --beige-light: #f9f5f0;
+      --beige-alt: #f0e6d2;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--beige-light);
+      color: var(--brown-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .partner-hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://static.wixstatic.com/media/8c8e4f_e42e46467fa64d4da8d8d4d7b80f305a~mv2.png') center/cover;
+      padding: 140px 0;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .partner-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .partner-hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 2px solid var(--white);
+    }
+
+    .btn-primary {
+      background: var(--brown-medium);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #6b4423;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--brown-medium);
+      margin: 10px auto 0;
+    }
+
+    .options-grid, .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .option-card, .benefit-item {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .option-card:hover, .benefit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-icon, .benefit-icon {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: var(--brown-medium);
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--brown-medium);
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .stats {
+      background: var(--white);
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      margin: 20px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--brown-medium);
+    }
+
+    .partner-cta {
+      background: linear-gradient(to right, var(--brown-medium), var(--brown-dark));
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .partner-cta p {
+      max-width: 700px;
+      margin: auto auto 30px;
+    }
+
+    footer {
+      background-color: var(--brown-dark);
+      color: var(--white);
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section class="partner-hero">
+    <div class="container">
+      <h1>Partner With Ni-Swarth</h1>
+      <p>Join us to empower communities through AI-driven donations and make meaningful social impact at scale.</p>
+      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <a href="#benefits" class="btn btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <section class="partnership-options">
+    <div class="container">
+      <h2 class="section-title">Partnership Opportunities</h2>
+      <div class="options-grid">
+        <div class="option-card">
+          <div class="card-icon">🏢</div>
+          <h3>Corporate Partnerships</h3>
+          <p>Align your brand with our cause through giving programs and engagement campaigns.</p>
+          <a href="#" class="card-link">Learn More →</a>
+        </div>
+        <div class="option-card">
+          <div class="card-icon">🤝</div>
+          <h3>Nonprofit Collaborations</h3>
+          <p>Amplify your reach with our platform's fundraising and AI matching features.</p>
+          <a href="#" class="card-link">Learn More →</a>
+        </div>
+        <div class="option-card">
+          <div class="card-icon">💻</div>
+          <h3>Technology Partners</h3>
+          <p>Join us with your tech and data solutions to boost transparency and impact.</p>
+          <a href="#" class="card-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <h2 class="section-title">Why Partner With Us?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">📍</div>
+          <h3>Impact Mapping</h3>
+          <p>We help visualize your social reach and effectiveness in real-time.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📊</div>
+          <h3>Transparent Reporting</h3>
+          <p>Track donations, conversions, and impact metrics with live dashboards.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🤖</div>
+          <h3>AI Optimization</h3>
+          <p>Get smart suggestions to optimize where and how you contribute.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🧭</div>
+          <h3>Global Reach</h3>
+          <p>Tap into our international network of verified NGOs and volunteers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div>Partners Worldwide</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$10M+</div>
+          <div>Donations Processed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div>Transparency Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-cta" id="contact">
+    <div class="container">
+      <h2>Ready to Collaborate?</h2>
+      <p>Contact our partnership team to explore how we can make meaningful change together.</p>
+      <a href="mailto:partnerships@ni-swarth.org" class="btn btn-primary">Email Us</a>
+      <a href="#" class="btn btn-secondary">Schedule a Call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ni-Swarth. All rights reserved.</p>
+      <p>A platform for change, a community for growth.</p>
+    </div>
+  </footer>
+</body>
+</html>

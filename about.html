@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Ni-Swarth</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('https://media.istockphoto.com/id/1498170916/photo/a-couple-is-taking-a-bag-of-food-at-the-food-and-clothes-bank.jpg?s=612x612&w=0&k=20&c=0fnD_g46lvoZ5NdzX5zYOSM4PzM95ezfs5uMe9D1QKs=');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #2b7a78;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    .video-link {
+      display: block;
+      text-align: center;
+      margin: 40px 0;
+      font-size: 1.2rem;
+    }
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    .oval-image {
+      width: 150px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2b7a78;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+    .oval-image:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    a.back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #2b7a78;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>About Ni-Swarth</h1>
+    <p>
+      Ni-Swarth is an AI-driven donation platform dedicated to making contributions more transparent, efficient, and impactful. Whether it's food donations or financial aid, we connect generous donors with verified NGOs to create real change.
+    </p>
+    <p>
+      Our platform uses intelligent matching and tracking to ensure that your donations reach those who need them the most. Join us in building a better future.
+    </p>
+
+    <h2 style="text-align:center; margin-top: 40px;">Watch Our Vision</h2>
+    <div class="video-link">
+      <a href="https://www.youtube.com/watch?v=4pmgqwvopk0" target="_blank">Watch the Ni-Swarth Video on YouTube</a>
+    </div>
+
+    <!-- Image row with oval images and animations -->
+    <div class="image-row">
+      <img src="https://azbigmedia.com/wp-content/uploads/2013/02/foodbank.jpg" alt="Food Bank" class="oval-image" style="animation-delay: 0.1s">
+      <img src="https://149797850.v2.pressablecdn.com/wp-content/uploads/2024/04/Website-Photos-14.png" alt="Community Service" class="oval-image" style="animation-delay: 0.3s">
+      <img src="https://annamrita.org/wp-content/uploads/2021/12/our-goals-mob.png" alt="Our Goals" class="oval-image" style="animation-delay: 0.5s">
+      <img src="https://nss-main.s3.ap-south-1.amazonaws.com/wp-content/uploads/2024/03/07180112/food-7-March-2024.jpg" alt="Food Donation" class="oval-image" style="animation-delay: 0.7s">
+    </div>
+
+    <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

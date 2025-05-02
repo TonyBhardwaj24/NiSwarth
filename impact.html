@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ni-Swarth - Impact & Benefits</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi23fvodQgotQxSYm3qfiDK1tN2YwW1UQHkw&s') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: #d1fae5;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #facc15;
+      font-size: 3.2rem;
+      margin-bottom: 50px;
+      text-shadow: 3px 3px 10px #00000088;
+      letter-spacing: 1px;
+    }
+
+    .impact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .impact-box {
+      flex: 1 1 calc(45% - 30px);
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid rgba(250, 204, 21, 0.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, background 0.3s;
+      animation: fadeIn 1s ease both;
+    }
+
+    .impact-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .impact-box h2 {
+      color: #facc15;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed #facc15;
+      padding-bottom: 8px;
+    }
+
+    .impact-box ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .impact-box ul li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      color: #e0f2fe;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .impact-box ul li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #86efac;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .impact-box {
+        flex: 1 1 100%;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Back to Dashboard button styles */
+    .back-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 8px 20px;
+      background-color: #facc15;
+      color: #333;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      max-width: 180px;
+    }
+
+    .back-btn:hover {
+      background-color: #fbbf24;
+    }
+
+    .back-btn:after {
+      content: ' ←';
+      font-size: 1.2rem;
+      margin-left: 8px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Impact & Benefits</h1>
+
+  <div class="impact-container">
+
+    <div class="impact-box">
+      <h2>🌍 Social Impact</h2>
+      <ul>
+        <li>Connects small and large NGOs with global supporters.</li>
+        <li>Promotes volunteering, item, and food-based contributions.</li>
+        <li>Builds long-term partnerships between donors and NGOs.</li>
+      </ul>
+    </div>
+
+    <div class="impact-box">
+      <h2>💰 Economic Impact</h2>
+      <ul>
+        <li>Secures recurring donations and sponsorships for stability.</li>
+        <li>Cuts NGO expenses via mentorship and legal aid volunteers.</li>
+        <li>Empowers local communities with skill-based opportunities.</li>
+      </ul>
+    </div>
+
+    <div class="impact-box">
+      <h2>🌱 Environmental Impact</h2>
+      <ul>
+        <li>Reduces paper waste through digital fundraising.</li>
+        <li>Focuses on climate-positive and green initiatives.</li>
+        <li>Backs tree planting, food redistribution, and cleanups.</li>
+      </ul>
+    </div>
+
+    <div class="impact-box">
+      <h2>🎯 Target Audience</h2>
+      <ul>
+        <li>Engages donors, volunteers, and sponsors.</li>
+        <li>Uses badges and leaderboards for motivation.</li>
+        <li>Enables live donation tracking and reporting.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Smaller Back to Dashboard Button -->
+  <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
+
+</body>
+</html>

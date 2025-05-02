@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ni-Swarth | NGO Mapper</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #map { height: 85vh; width: 100%; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <p>📍 Click on the map to mark your location and get top 5 nearest matches</p>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([30.3165, 78.0322], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let userMarker = null;
+    let ngoMarkers = [];
+
+    const orangeIcon = new L.Icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    const blueIcon = new L.Icon.Default();
+
+    // Show all NGOs on page load
+    window.onload = () => {
+      fetch("http://localhost:5000/api/all-ngos")
+        .then(res => res.json())
+        .then(all => {
+          all.forEach(ngo => {
+            const marker = L.marker([ngo.latitude, ngo.longitude], { icon: blueIcon })
+              .addTo(map)
+              .bindPopup(`<b>${ngo.name}</b><br>${ngo.services}`);
+            ngoMarkers.push(marker);
+          });
+        });
+    };
+
+    // On map click
+    map.on('click', function (e) {
+      if (userMarker) map.removeLayer(userMarker);
+      ngoMarkers.forEach(m => map.removeLayer(m));
+      ngoMarkers = [];
+
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+      userMarker = L.marker([lat, lng]).addTo(map).bindPopup("📍 You are here").openPopup();
+
+      fetch("http://localhost:5000/api/match-ngos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lat: lat,
+          lng: lng,
+          interests: [] // No donation type selected
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(ngo => {
+          const icon = ngo.is_top5 ? orangeIcon : blueIcon;
+          const marker = L.marker([ngo.latitude, ngo.longitude], { icon: icon })
+            .addTo(map)
+            .bindPopup(`<b>${ngo.name}</b><br>${ngo.services}<br><i>${ngo["Distance (km)"].toFixed(2)} km away</i>`);
+          ngoMarkers.push(marker);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
